@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontakt – Media Partner</title>
+  <meta name="description" content="Kontaktujte nás pro nezávaznou konzultaci SEO nebo publikace článků. Odpovídáme do 24 hodin." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .contact-big-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 56px;
+    }
+    .contact-big-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 44px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .contact-big-card:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-4px);
+    }
+    .contact-big-icon {
+      font-size: 40px;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .contact-big-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+    }
+    .contact-big-value {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.2;
+    }
+    .contact-big-value a {
+      color: var(--accent-2);
+      transition: color 0.2s;
+    }
+    .contact-big-value a:hover { color: var(--text); }
+    .contact-big-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-top: 4px;
+    }
+
+    @media (max-width: 900px) {
+      .contact-big-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      .contact-big-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav scrolled" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">Media<span>Partner</span></a>
+      <button class="burger" id="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Úvod</a></li>
+        <li><a href="sluzby.html">Služby</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="partneri.html">Partnerské weby</a></li>
+        <li><a href="o-nas.html">O nás</a></li>
+        <li><a href="kontakt.html" class="active nav-cta">Kontakt</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="tag">Kontakt</div>
+      <h1>Pojďme to<br /><em>probrat</em></h1>
+      <p>Napište nám nebo zavolejte. Odpovídáme do 24 hodin a rádi vám poradíme, jak nejlépe využít naše služby pro váš projekt.</p>
+    </div>
+  </section>
+
+  <section class="contact-section" style="background: var(--bg);">
+    <div class="container">
+
+      <div class="contact-big-grid">
+
+        <div class="contact-big-card">
+          <div class="contact-big-icon">📧</div>
+          <div class="contact-big-label">E-mail</div>
+          <div class="contact-big-value">
+            <a href="mailto:info@mediapartner.cz">info@mediapartner.cz</a>
+          </div>
+          <p class="contact-big-desc">Preferujete písemnou komunikaci? Napište nám e-mail a ozveme se do 24 hodin.</p>
+        </div>
+
+        <div class="contact-big-card">
+          <div class="contact-big-icon">📞</div>
+          <div class="contact-big-label">Telefon</div>
+          <div class="contact-big-value">
+            <a href="tel:+420602955945">602 955 945</a>
+          </div>
+          <p class="contact-big-desc">Volejte v pracovní dny. Rádi si s vámi probereme projekt přímo po telefonu.</p>
+        </div>
+
+        <div class="contact-big-card">
+          <div class="contact-big-icon">📍</div>
+          <div class="contact-big-label">Adresa</div>
+          <div class="contact-big-value">Úprkova 17/29<br />Hradec Králové</div>
+          <p class="contact-big-desc">Osobní schůzku rádi domluvíme po předchozí domluvě.</p>
+        </div>
+
+      </div>
+
+      <!-- Odpovídáme banner -->
+      <div style="margin-top: 32px; padding: 36px 48px; background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(99,102,241,0.04)); border: 1px solid var(--border-accent); border-radius: var(--radius-lg); display: flex; align-items: center; gap: 32px; flex-wrap: wrap;">
+        <div style="font-size: 48px;">⚡</div>
+        <div>
+          <div style="font-family: var(--font-display); font-size: 24px; margin-bottom: 8px;">Odpovídáme do 24 hodin</div>
+          <p style="color: var(--text-muted); font-size: 15px; max-width: 600px; line-height: 1.7;">Ozveme se vám do jednoho pracovního dne s konkrétní nabídkou nebo dalšími otázkami. V oboru pracujeme od roku 2009 — víme, jak rychlost rozhoduje.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="padding: 100px 0; background: var(--bg-2);">
+    <div class="container">
+      <div class="section-header">
+        <div class="tag">FAQ</div>
+        <h2>Nejčastější<br /><em>dotazy</em></h2>
+      </div>
+      <div style="max-width: 720px; display: flex; flex-direction: column; gap: 14px;">
+        <details style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;">
+          <summary style="padding: 22px 26px; font-size: 16px; font-weight: 500; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+            Jak dlouho trvá, než uvidím výsledky SEO?
+            <span style="color: var(--accent); font-size: 20px;">+</span>
+          </summary>
+          <div style="padding: 0 26px 22px; color: var(--text-muted); font-size: 15px; line-height: 1.75;">
+            SEO je dlouhodobá investice. První výsledky (zlepšení pozic, nárůst trafficu) obvykle vidíme po 3–6 měsících. Výrazné výsledky se dostavují po 6–12 měsících pravidelné práce. Přesný timing závisí na konkurenčnosti oboru a výchozím stavu webu.
+          </div>
+        </details>
+        <details style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;">
+          <summary style="padding: 22px 26px; font-size: 16px; font-weight: 500; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+            Jsou vaše weby skutečně s organickou návštěvností?
+            <span style="color: var(--accent); font-size: 20px;">+</span>
+          </summary>
+          <div style="padding: 0 26px 22px; color: var(--text-muted); font-size: 15px; line-height: 1.75;">
+            Ano, 100%. Naše weby mají letitou historii, legitimní obsah a reálné čtenáře. Žádné PBN, žádné umělé návštěvy. Při poptávce vám rádi ukážeme aktuální data z Google Analytics a Search Console.
+          </div>
+        </details>
+        <details style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;">
+          <summary style="padding: 22px 26px; font-size: 16px; font-weight: 500; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+            Mohu si přinést vlastní text článku?
+            <span style="color: var(--accent); font-size: 20px;">+</span>
+          </summary>
+          <div style="padding: 0 26px 22px; color: var(--text-muted); font-size: 15px; line-height: 1.75;">
+            Samozřejmě. Přijímáme jak vaše texty (zkontrolujeme je a případně doporučíme úpravy pro lepší SEO výkon), tak zajišťujeme kompletní tvorbu obsahu na míru – od briefu po finální publikaci.
+          </div>
+        </details>
+        <details style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;">
+          <summary style="padding: 22px 26px; font-size: 16px; font-weight: 500; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+            Jak dlouho zůstane článek zveřejněn?
+            <span style="color: var(--accent); font-size: 20px;">+</span>
+          </summary>
+          <div style="padding: 0 26px 22px; color: var(--text-muted); font-size: 15px; line-height: 1.75;">
+            Trvale. Na rozdíl od placených odkazů v adresářích nebo dočasných sponzorovaných příspěvků, naše publikace jsou permanentní a bez dalšího poplatku za udržování.
+          </div>
+        </details>
+        <details style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;">
+          <summary style="padding: 22px 26px; font-size: 16px; font-weight: 500; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+            Nabízíte i jiné weby než ty čtyři?
+            <span style="color: var(--accent); font-size: 20px;">+</span>
+          </summary>
+          <div style="padding: 0 26px 22px; color: var(--text-muted); font-size: 15px; line-height: 1.75;">
+            Ano! Tyto čtyři weby jsou naše vlastní. Máme ale přístup k širší síti partnerů. Pokud vaše téma vyžaduje specifické zaměření, kontaktujte nás a najdeme ideální platformu.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">Media<span>Partner</span></a>
+        <p>Česká obsahová agentura zaměřená na SEO a obsahový marketing na prémiových webech. V oboru od roku 2009.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Navigace</h4>
+          <ul>
+            <li><a href="index.html">Úvod</a></li>
+            <li><a href="sluzby.html">Služby</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="partneri.html">Partnerské weby</a></li>
+            <li><a href="o-nas.html">O nás</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Partneři</h4>
+          <ul>
+            <li><a href="partneri.html#souteze">Souteze.cz</a></li>
+            <li><a href="partneri.html#jaktak">JakTak.cz</a></li>
+            <li><a href="partneri.html#konev">Konev.cz</a></li>
+            <li><a href="partneri.html#koumak">Koumak.cz</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Kontakt</h4>
+          <ul>
+            <li><a href="mailto:info@mediapartner.cz">info@mediapartner.cz</a></li>
+            <li><a href="tel:+420602955945">602 955 945</a></li>
+            <li>Úprkova 17/29, Hradec Králové</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <span>© 2025 MediaPartner.cz – Všechna práva vyhrazena</span>
+        <span><a href="#">Ochrana osobních údajů</a> · <a href="#">Cookies</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

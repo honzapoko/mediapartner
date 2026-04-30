@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio – Media Partner</title>
+  <meta name="description" content="Vlastníme a spravujeme stovky českých a slovenských webů. Aktivní v oboru od roku 2009. Podívejte se na naše portfolio." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 64px;
+    }
+    .portfolio-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+      display: block;
+      text-decoration: none;
+    }
+    .portfolio-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--border-accent);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+    }
+    .portfolio-screenshot {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      background: var(--bg-3);
+      border-bottom: 1px solid var(--border);
+    }
+    .portfolio-screenshot-placeholder {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, var(--bg-3) 0%, var(--surface-2) 100%);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 22px;
+      color: var(--text-faint);
+    }
+    .portfolio-card-body {
+      padding: 22px 24px 26px;
+    }
+    .portfolio-domain {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--gold-light);
+      margin-bottom: 8px;
+    }
+    .portfolio-card-body p {
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.65;
+      margin-bottom: 14px;
+    }
+    .portfolio-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .portfolio-tag {
+      font-size: 11px;
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      color: var(--text-faint);
+      padding: 3px 10px;
+      border-radius: 50px;
+    }
+    .portfolio-visit {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--accent-2);
+      margin-top: 14px;
+      transition: gap 0.2s;
+    }
+    .portfolio-card:hover .portfolio-visit { gap: 10px; }
+
+    .since-banner {
+      background: linear-gradient(135deg, rgba(99,102,241,0.12) 0%, rgba(245,158,11,0.08) 100%);
+      border: 1px solid var(--border-accent);
+      border-radius: var(--radius-lg);
+      padding: 48px 56px;
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      margin-bottom: 72px;
+      flex-wrap: wrap;
+    }
+    .since-num {
+      font-family: var(--font-display);
+      font-size: 96px;
+      font-weight: 900;
+      color: var(--accent);
+      line-height: 1;
+      white-space: nowrap;
+      opacity: 0.9;
+    }
+    .since-text h2 { font-size: 34px; margin-bottom: 12px; }
+    .since-text p { color: var(--text-muted); font-size: 16px; line-height: 1.7; max-width: 500px; }
+    .since-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+    .since-stat-num {
+      font-family: var(--font-display);
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--gold-light);
+    }
+    .since-stat-label { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+
+    @media (max-width: 1024px) {
+      .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .since-banner { flex-direction: column; gap: 24px; padding: 32px; }
+      .since-num { font-size: 64px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav scrolled" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">Media<span>Partner</span></a>
+      <button class="burger" id="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Úvod</a></li>
+        <li><a href="sluzby.html">Služby</a></li>
+        <li><a href="portfolio.html" class="active">Portfolio</a></li>
+        <li><a href="partneri.html">Partnerské weby</a></li>
+        <li><a href="o-nas.html">O nás</a></li>
+        <li><a href="kontakt.html" class="nav-cta">Kontakt</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="tag">Portfolio</div>
+      <h1>Stovky webů,<br /><em>jeden tým</em></h1>
+      <p>Budujeme a spravujeme síť českých a slovenských webů od roku 2009. Každý web je samostatný projekt s vlastním publikem, obsahem a SEO strategií.</p>
+    </div>
+  </section>
+
+  <section class="section" style="background: var(--bg); padding-top: 80px;">
+    <div class="container">
+
+      <!-- SINCE 2009 BANNER -->
+      <div class="since-banner">
+        <div class="since-num">2009</div>
+        <div class="since-text">
+          <h2>Průkopníci českého<br /><em>obsahového webu</em></h2>
+          <p>Začínali jsme v době, kdy se o obsahovém marketingu v Česku teprve začínalo mluvit. Dnes spravujeme stovky webů s celkovou návštěvností v milionech zobrazení ročně.</p>
+          <div class="since-stats">
+            <div>
+              <div class="since-stat-num">15+</div>
+              <div class="since-stat-label">let v oboru</div>
+            </div>
+            <div>
+              <div class="since-stat-num">100+</div>
+              <div class="since-stat-label">aktivních webů</div>
+            </div>
+            <div>
+              <div class="since-stat-num">CZ & SK</div>
+              <div class="since-stat-label">trhy</div>
+            </div>
+            <div>
+              <div class="since-stat-num">1M+</div>
+              <div class="since-stat-label">zobrazení / rok</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PORTFOLIO GRID -->
+      <div class="section-header" style="margin-bottom: 0;">
+        <div class="tag">Výběr z portfolia</div>
+        <h2 style="margin-top: 14px;">Naše<br /><em>vlastní weby</em></h2>
+        <p class="section-desc">Každý web cílí na jiné téma a publikum — díky tomu dokážeme umístit váš obsah přesně tam, kde ho hledají vaši zákazníci.</p>
+      </div>
+
+      <div class="portfolio-grid">
+
+        <!-- cestovatel.cz -->
+        <a href="https://cestovatel.cz" target="_blank" rel="noopener" class="portfolio-card">
+          <img
+            class="portfolio-screenshot"
+            src="https://image.thum.io/get/width/600/crop/400/noanimate/https://cestovatel.cz"
+            alt="Cestovatel.cz screenshot"
+            loading="lazy"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div class="portfolio-screenshot-placeholder" style="display:none;">cestovatel.cz</div>
+          <div class="portfolio-card-body">
+            <div class="portfolio-domain">Cestovatel.cz</div>
+            <p>Cestovatelský magazín o destinacích, tipech na výlety a cestovních zkušenostech z celého světa. Silná organická návštěvnost v cestovní sezóně.</p>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">✈️ Cestování</span>
+              <span class="portfolio-tag">Tipy na výlety</span>
+              <span class="portfolio-tag">Destinace</span>
+            </div>
+            <div class="portfolio-visit">Navštívit web →</div>
+          </div>
+        </a>
+
+        <!-- jaktak.cz -->
+        <a href="https://jaktak.cz" target="_blank" rel="noopener" class="portfolio-card">
+          <img
+            class="portfolio-screenshot"
+            src="https://image.thum.io/get/width/600/crop/400/noanimate/https://jaktak.cz"
+            alt="JakTak.cz screenshot"
+            loading="lazy"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div class="portfolio-screenshot-placeholder" style="display:none;">jaktak.cz</div>
+          <div class="portfolio-card-body">
+            <div class="portfolio-domain">JakTak.cz</div>
+            <p>Praktické rady, návody a tipy pro každodenní život. Jeden z nejnavštěvovanějších návodových portálů v České republice s vysokým organickým traffikem.</p>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">🏠 Návody</span>
+              <span class="portfolio-tag">DIY</span>
+              <span class="portfolio-tag">Domácnost</span>
+            </div>
+            <div class="portfolio-visit">Navštívit web →</div>
+          </div>
+        </a>
+
+        <!-- obydleni.cz -->
+        <a href="https://obydleni.cz" target="_blank" rel="noopener" class="portfolio-card">
+          <img
+            class="portfolio-screenshot"
+            src="https://image.thum.io/get/width/600/crop/400/noanimate/https://obydleni.cz"
+            alt="Obydleni.cz screenshot"
+            loading="lazy"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div class="portfolio-screenshot-placeholder" style="display:none;">obydleni.cz</div>
+          <div class="portfolio-card-body">
+            <div class="portfolio-domain">Obydleni.cz</div>
+            <p>Inspirace pro bydlení, interiérový design a úpravu domácnosti. Ideální pro inzerci nábytku, domácích spotřebičů a vybavení interiérů.</p>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">🛋️ Bydlení</span>
+              <span class="portfolio-tag">Interiér</span>
+              <span class="portfolio-tag">Design</span>
+            </div>
+            <div class="portfolio-visit">Navštívit web →</div>
+          </div>
+        </a>
+
+        <!-- esoterika.cz -->
+        <a href="https://esoterika.cz" target="_blank" rel="noopener" class="portfolio-card">
+          <img
+            class="portfolio-screenshot"
+            src="https://image.thum.io/get/width/600/crop/400/noanimate/https://esoterika.cz"
+            alt="Esoterika.cz screenshot"
+            loading="lazy"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div class="portfolio-screenshot-placeholder" style="display:none;">esoterika.cz</div>
+          <div class="portfolio-card-body">
+            <div class="portfolio-domain">Esoterika.cz</div>
+            <p>Svět esoterik, astrologie, numerologie a duchovního rozvoje. Věrná komunita čtenářů s vysokou angažovaností a opakovanými návštěvami.</p>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">🔮 Esoterika</span>
+              <span class="portfolio-tag">Astrologie</span>
+              <span class="portfolio-tag">Spiritualita</span>
+            </div>
+            <div class="portfolio-visit">Navštívit web →</div>
+          </div>
+        </a>
+
+        <!-- nahorach.cz -->
+        <a href="https://nahorach.cz" target="_blank" rel="noopener" class="portfolio-card">
+          <img
+            class="portfolio-screenshot"
+            src="https://image.thum.io/get/width/600/crop/400/noanimate/https://nahorach.cz"
+            alt="NaHorach.cz screenshot"
+            loading="lazy"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div class="portfolio-screenshot-placeholder" style="display:none;">nahorach.cz</div>
+          <div class="portfolio-card-body">
+            <div class="portfolio-domain">NaHorach.cz</div>
+            <p>Průvodce horskou turistikou, treky a alpinismem. Vášnivé publikum outdoorových nadšenců hledajících informace o horách a outdoorovém vybavení.</p>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">⛰️ Hory</span>
+              <span class="portfolio-tag">Turistika</span>
+              <span class="portfolio-tag">Outdoor</span>
+            </div>
+            <div class="portfolio-visit">Navštívit web →</div>
+          </div>
+        </a>
+
+        <!-- dekorace.cz -->
+        <a href="https://dekorace.cz" target="_blank" rel="noopener" class="portfolio-card">
+          <img
+            class="portfolio-screenshot"
+            src="https://image.thum.io/get/width/600/crop/400/noanimate/https://dekorace.cz"
+            alt="Dekorace.cz screenshot"
+            loading="lazy"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div class="portfolio-screenshot-placeholder" style="display:none;">dekorace.cz</div>
+          <div class="portfolio-card-body">
+            <div class="portfolio-domain">Dekorace.cz</div>
+            <p>Inspirace pro dekoraci bytu, domu a zahrady. Sezónní obsah s výraznými špičkami před Vánoci a jarem — ideální pro e-shopy s dekoracemi.</p>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">🎨 Dekorace</span>
+              <span class="portfolio-tag">Domov</span>
+              <span class="portfolio-tag">Sezónní obsah</span>
+            </div>
+            <div class="portfolio-visit">Navštívit web →</div>
+          </div>
+        </a>
+
+        <!-- koumak.cz -->
+        <a href="https://koumak.cz" target="_blank" rel="noopener" class="portfolio-card">
+          <img
+            class="portfolio-screenshot"
+            src="https://image.thum.io/get/width/600/crop/400/noanimate/https://koumak.cz"
+            alt="Koumak.cz screenshot"
+            loading="lazy"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div class="portfolio-screenshot-placeholder" style="display:none;">koumak.cz</div>
+          <div class="portfolio-card-body">
+            <div class="portfolio-domain">Koumak.cz</div>
+            <p>Analytický web pro zvídavé čtenáře — technologie, věda, AI a inovace. Vzdělané publikum s vyšší kupní silou a důvěrou v recenze.</p>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">💡 Tech & Věda</span>
+              <span class="portfolio-tag">AI</span>
+              <span class="portfolio-tag">Inovace</span>
+            </div>
+            <div class="portfolio-visit">Navštívit web →</div>
+          </div>
+        </a>
+
+        <!-- konev.cz -->
+        <a href="https://konev.cz" target="_blank" rel="noopener" class="portfolio-card">
+          <img
+            class="portfolio-screenshot"
+            src="https://image.thum.io/get/width/600/crop/400/noanimate/https://konev.cz"
+            alt="Konev.cz screenshot"
+            loading="lazy"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div class="portfolio-screenshot-placeholder" style="display:none;">konev.cz</div>
+          <div class="portfolio-card-body">
+            <div class="portfolio-domain">Konev.cz</div>
+            <p>Zahradnický portál s vášnivou komunitou milovníků přírody. Skvělé pro zahradní produkty, ekologické značky a přírodní kosmetiku.</p>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">🌱 Zahrada</span>
+              <span class="portfolio-tag">Příroda</span>
+              <span class="portfolio-tag">Ekologie</span>
+            </div>
+            <div class="portfolio-visit">Navštívit web →</div>
+          </div>
+        </a>
+
+        <!-- muzskystyl.cz -->
+        <a href="https://muzskystyl.cz" target="_blank" rel="noopener" class="portfolio-card">
+          <img
+            class="portfolio-screenshot"
+            src="https://image.thum.io/get/width/600/crop/400/noanimate/https://muzskystyl.cz"
+            alt="MuzskyStyl.cz screenshot"
+            loading="lazy"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div class="portfolio-screenshot-placeholder" style="display:none;">muzskystyl.cz</div>
+          <div class="portfolio-card-body">
+            <div class="portfolio-domain">MuzskyStyl.cz</div>
+            <p>Mužský lifestyle magazín — móda, grooming, fitness a technologie pro moderní muže. Cílené mužské publikum v produktivním věku 25–45 let.</p>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">👔 Men's lifestyle</span>
+              <span class="portfolio-tag">Móda</span>
+              <span class="portfolio-tag">Grooming</span>
+            </div>
+            <div class="portfolio-visit">Navštívit web →</div>
+          </div>
+        </a>
+
+        <!-- tech.sk -->
+        <a href="https://tech.sk" target="_blank" rel="noopener" class="portfolio-card">
+          <img
+            class="portfolio-screenshot"
+            src="https://image.thum.io/get/width/600/crop/400/noanimate/https://tech.sk"
+            alt="Tech.sk screenshot"
+            loading="lazy"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div class="portfolio-screenshot-placeholder" style="display:none;">tech.sk</div>
+          <div class="portfolio-card-body">
+            <div class="portfolio-domain">Tech.sk</div>
+            <p>Slovenský technologický portál pokrývající novinky ze světa technologií, recenze gadgetů a digitální trendy. Přístup na slovenský trh v jednom.</p>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">🇸🇰 Slovensko</span>
+              <span class="portfolio-tag">Technologie</span>
+              <span class="portfolio-tag">Gadgety</span>
+            </div>
+            <div class="portfolio-visit">Navštívit web →</div>
+          </div>
+        </a>
+
+      </div>
+
+      <!-- MORE SITES NOTE -->
+      <div style="margin-top: 60px; padding: 40px 48px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap;">
+        <div>
+          <div style="font-family: var(--font-display); font-size: 28px; margin-bottom: 10px;">A stovky dalších webů…</div>
+          <p style="color: var(--text-muted); max-width: 560px; line-height: 1.7;">Výše uvedené jsou jen zlomek z naší sítě. Máme weby pokrývající desítky dalších témat — od financí přes zdraví až po sport. Kontaktujte nás a najdeme ten nejlepší web pro vaše téma.</p>
+        </div>
+        <a href="kontakt.html" class="btn btn-primary btn-lg">Zjistit více</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner">
+    <div class="container">
+      <div class="cta-inner">
+        <div class="cta-text">
+          <h2>Chcete publikovat na jednom z našich webů?</h2>
+          <p>Vyberte téma, my najdeme ten správný web z naší sítě. Dofollow zpětné odkazy na prémiových doménách s reálnou návštěvností.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="kontakt.html" class="btn btn-primary btn-lg">Domluvit spolupráci</a>
+          <a href="sluzby.html" class="btn btn-ghost-light">Ceník →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">Media<span>Partner</span></a>
+        <p>Česká obsahová agentura zaměřená na SEO a obsahový marketing na prémiových webech. V oboru od roku 2009.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Navigace</h4>
+          <ul>
+            <li><a href="index.html">Úvod</a></li>
+            <li><a href="sluzby.html">Služby</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="partneri.html">Partnerské weby</a></li>
+            <li><a href="o-nas.html">O nás</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Weby</h4>
+          <ul>
+            <li><a href="https://cestovatel.cz" target="_blank">Cestovatel.cz</a></li>
+            <li><a href="https://jaktak.cz" target="_blank">JakTak.cz</a></li>
+            <li><a href="https://koumak.cz" target="_blank">Koumak.cz</a></li>
+            <li><a href="https://konev.cz" target="_blank">Konev.cz</a></li>
+            <li><a href="https://tech.sk" target="_blank">Tech.sk</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Kontakt</h4>
+          <ul>
+            <li><a href="mailto:info@mediapartner.cz">info@mediapartner.cz</a></li>
+            <li><a href="tel:+420602955945">602 955 945</a></li>
+            <li>Hradec Králové</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <span>© 2025 MediaPartner.cz – Všechna práva vyhrazena</span>
+        <span><a href="#">Ochrana osobních údajů</a> · <a href="#">Cookies</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
